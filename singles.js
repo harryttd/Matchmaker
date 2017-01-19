@@ -7,4 +7,4 @@ module.exports = router
   .get('/boys', (req, res, next) => res.json(db.boys))
   .get('/boys/:id', (req, res, next) => res.json(db.boys[req.params.id]))
   .get('/girls', (req, res, next) => res.json(db.girls))
-  .get('/girls/:id', (req, res, next) => res.json(db.girls[req.params.id]))
+  .get('/girls/:id', (req, res, next) => res.json(db.girls[req.params.id]));

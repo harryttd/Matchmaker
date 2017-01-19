@@ -49,17 +49,7 @@ export const getAllBoys = () => dispatch =>
   .then(res => dispatch(getBoys(res.data)))
   .catch(err => console.error('Fetching all boys unsuccessful', err));
 
-export const getSelectedBoy = id => dispatch =>
-  axios.get(`/api/boys/${id}`)
-  .then(res => dispatch(selectBoy(res.data)))
-  .catch(err => console.error('Fetching boy unsuccessful', err));
-
 export const getAllGirls = () => dispatch =>
   axios.get(`/api/girls`)
   .then(res => dispatch(getGirls(res.data)))
   .catch(err => console.error('Fetching all girls unsuccessful', err));
-
-export const getSelectedGirl = id => dispatch =>
-  axios.get(`/api/girls/${id}`)
-  .then(res => dispatch(selectGirl(res.data)))
-  .catch(err => console.error('Fetching girl unsuccessful', err));
