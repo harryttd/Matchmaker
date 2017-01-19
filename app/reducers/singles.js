@@ -59,7 +59,12 @@ export const getAllGirls = () => dispatch =>
   .then(res => dispatch(getGirls(res.data)))
   .catch(err => console.error('Fetching all girls unsuccessful', err));
 
-export const getSelectedGirl = id => dispatch =>
+export const getSelectedGirl = id => dispatch => {
+  console.log(id);
   axios.get(`/api/girls/${id}`)
-  .then(res => dispatch(selectGirl(res.data)))
+  .then(res => {
+    console.log("GIRL DATA", res.data);
+    return dispatch(selectGirl(res.data))
+  })
   .catch(err => console.error('Fetching girl unsuccessful', err));
+}
