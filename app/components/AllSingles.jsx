@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-const AllSingles = ({ singles }) => {
-  const boys = singles.boys && singles.boys.map((boy, index) => {
+const AllSingles = ({ boys, girls }) => {
+  const singleBoys = boys && boys.map((boy, index) => {
     boy.indexId = index;
     return boy;
   });
-  const girls = singles.girls && singles.girls.map((girl, index) => {
+  const singleGirls = girls && girls.map((girl, index) => {
     girl.indexId = index;
     return girl;
   });
-  const people = boys && girls ? [...boys, ...girls] : null;
+  const people = boys && girls ? [...singleBoys, ...singleGirls] : null;
 
   return (
     <div>
@@ -27,5 +27,8 @@ const AllSingles = ({ singles }) => {
   );
 };
 
-const mapState = ({ singles }) => ({ singles });
+const mapState = ({ singles }) => ({
+  boys: singles.boys,
+  girls: singles.girls
+});
 export default connect(mapState)(AllSingles);
