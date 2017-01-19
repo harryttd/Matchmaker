@@ -13,8 +13,7 @@ import SingleBoy from '././components/SingleBoy';
 
 import { getAllSingles, getAllBoys, getAllGirls } from './reducers/singles';
 import { getSelectedBoy, getSelectedGirl } from './reducers/selectedPerson';
-// <Route path="/boys/:id" component={SingleBoy} />
-// <Route path="/girls" component={Girls} />
+
 const Routes = ({ onAppEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSingleGirlEnter }) => (
   <Router history={browserHistory}>
     <Route path="/" component={Root} onEnter={onAppEnter}>
@@ -32,7 +31,7 @@ const mapDispatch = dispatch => ({
   onAppEnter: () => dispatch(getAllSingles()),
   onBoysEnter: () => dispatch(getAllBoys()),
   onGirlsEnter: () => dispatch(getAllGirls()),
-  onSingleGirlEnter: (nextRouterState) => dispatch(getSelectedGirl(+nextRouterState.params.id)),
-  onSingleBoyEnter: (nextRouterState) => dispatch(getSelectedBoy(+nextRouterState.params.id))
+  onSingleGirlEnter: (nextRouterState) => dispatch(getSelectedGirl(nextRouterState.params.id)),
+  onSingleBoyEnter: (nextRouterState) => dispatch(getSelectedBoy(nextRouterState.params.id))
 });
 export default connect(mapState, mapDispatch)(Routes);

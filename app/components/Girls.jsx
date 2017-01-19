@@ -7,10 +7,10 @@ const Girls = ({ girls }) => {
   return (
     <div>
       {
-        girls && girls.map(girl =>
-          Object.keys(girl).map(key =>
-            <h2>{key + ' ' + girl[key]}</h2>
-          )
+        girls && girls.map((girl, index) =>
+          <Link to={`/girls/${index}`} key={girl.id}>
+            <h2>{`${girl.firstName} ${girl.lastName}`}</h2>
+          </Link>
         )
       }
     </div>

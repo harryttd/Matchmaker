@@ -7,10 +7,10 @@ const Boys = ({ boys }) => {
   return (
     <div>
       {
-        boys && boys.map(boy =>
-          Object.keys(boy).map(key =>
-            <h2>{key + ' ' + boy[key]}</h2>
-          )
+        boys && boys.map((boy, index) =>
+          <Link to={`/boys/${index}`} key={boy.id}>
+            <h2>{`${boy.firstName} ${boy.lastName}`}</h2>
+          </Link>
         )
       }
     </div>

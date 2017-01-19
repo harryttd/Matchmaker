@@ -2,6 +2,7 @@
   "boys": [
     {
       "id": 1,
+      "gender": "boy",
       "firstName": "Aryeh Moshe",
       "lastName": "Harris",
       "address": "123 Ave Passaic, NJ 12345 United States",
@@ -29,6 +30,7 @@
 
     {
       "id": 2,
+      "gender": "boy",
       "firstName": "Yaakov",
       "lastName": "Harris",
       "address": "123 Ave Passaic, NJ 12345 United States",
@@ -56,6 +58,7 @@
 
     {
       "id": 3,
+      "gender": "boy",
       "firstName": "Yechiel",
       "lastName": "Leifer",
       "address": "123 Ave Passaic, NJ 12345 United States",
@@ -84,6 +87,7 @@
   "girls": [
     {
       "id": 4,
+      "gender": "girl",
       "firstName": "Kayla",
       "lastName": "Harris",
       "address": "123 Ave Passaic, NJ 12345 United States",
@@ -110,6 +114,7 @@
 
     {
       "id": 5,
+      "gender": "girl",
       "firstName": "Tehilla Bracha",
       "lastName": "Harris",
       "address": "123 Ave Passaic, NJ 12345 United States",
@@ -136,6 +141,7 @@
 
     {
       "id": 6,
+      "gender": "girl",
       "firstName": "Ahuva",
       "lastName": "Harris",
       "address": "123 Ave Passaic, NJ 12345 United States",
