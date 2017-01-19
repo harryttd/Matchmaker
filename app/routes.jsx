@@ -9,15 +9,18 @@ import Boys from './components/Boys';
 import Girls from './components/Girls';
 // import SingleBoy from './components/SingleBoy';
 import SingleGirl from './components/SingleGirl';
+import SingleBoy from '././components/SingleBoy';
 
-import { getAllSingles, getAllBoys, getAllGirls, getSelectedGirl } from './reducers/singles';
+import { getAllSingles, getAllBoys, getAllGirls } from './reducers/singles';
+import { getSelectedBoy, getSelectedGirl } from './reducers/selectedPerson';
 // <Route path="/boys/:id" component={SingleBoy} />
 // <Route path="/girls" component={Girls} />
-const Routes = ({ onAppEnter, onBoysEnter, onGirlsEnter, onSingleGirlEnter }) => (
+const Routes = ({ onAppEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSingleGirlEnter }) => (
   <Router history={browserHistory}>
     <Route path="/" component={Root} onEnter={onAppEnter}>
       <Route path="/all" component={AllSingles} />
       <Route path="/boys" component={Boys} onEnter={onBoysEnter} />
+      <Route path="/boys/:id" component={SingleBoy} onEnter={onSingleBoyEnter} />
       <Route path="/girls" component={Girls} onEnter={onGirlsEnter} />
       <Route path="/girls/:id" component={SingleGirl} onEnter={onSingleGirlEnter} />
     </Route>
@@ -29,6 +32,7 @@ const mapDispatch = dispatch => ({
   onAppEnter: () => dispatch(getAllSingles()),
   onBoysEnter: () => dispatch(getAllBoys()),
   onGirlsEnter: () => dispatch(getAllGirls()),
-  onSingleGirlEnter: (nextRouterState) => dispatch(getSelectedGirl(+nextRouterState.params.id))
+  onSingleGirlEnter: (nextRouterState) => dispatch(getSelectedGirl(+nextRouterState.params.id)),
+  onSingleBoyEnter: (nextRouterState) => dispatch(getSelectedBoy(+nextRouterState.params.id))
 });
 export default connect(mapState, mapDispatch)(Routes);

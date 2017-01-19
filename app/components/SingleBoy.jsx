@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-const SingleGirl = ({ selectedPerson }) => {
+const SingleBoy = ({ selectedPerson }) => {
   return (
     <div>
       {
@@ -16,4 +16,4 @@ const SingleGirl = ({ selectedPerson }) => {
 };
 
 const mapState = ({ selectedPerson }) => ({ selectedPerson });
-export default connect(mapState)(SingleGirl);
+export default connect(mapState)(SingleBoy);
