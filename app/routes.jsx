@@ -2,6 +2,7 @@
 import React from 'react';
 import {Router, Route, IndexRoute, IndexRedirect, browserHistory} from 'react-router';
 import { connect } from 'react-redux';
+import store from './store';
 
 import Root from './components/Root';
 import AllSingles from './components/AllSingles';
@@ -24,7 +25,7 @@ const Routes = ({ onAppEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSin
       <Route path="/boys/:id" component={SingleBoy} onEnter={onSingleBoyEnter} />
       <Route path="/girls" component={Girls} onEnter={onGirlsEnter} />
       <Route path="/girls/:id" component={SingleGirl} onEnter={onSingleGirlEnter} />
-      <Route path="/match" component={Matches} onEnter={onMatchEnter} />
+      <Route path="/:personName/match" component={Matches} onEnter={onMatchEnter} />
     </Route>
   </Router>
 );
@@ -36,6 +37,8 @@ const mapDispatch = dispatch => ({
   onGirlsEnter: () => dispatch(getAllGirls()),
   onSingleGirlEnter: (nextRouterState) => dispatch(getSelectedGirl(nextRouterState.params.id)),
   onSingleBoyEnter: (nextRouterState) => dispatch(getSelectedBoy(nextRouterState.params.id)),
-  onMatchEnter: (nextRouterState) => getMatches(nextRouterState.selectedPerson)
+  onMatchEnter: (nextRouterState) => {
+    dispatch(getMatches(store.getState().selectedPerson));
+  }
 });
 export default connect(mapState, mapDispatch)(Routes);

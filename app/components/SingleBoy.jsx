@@ -19,7 +19,7 @@ const SingleBoy = ({ selectedPerson }) => {
       <div>
         <h5>{ boy.tags }</h5>
       </div>
-      <Link to={`/match`}>
+      <Link to={`/${boy.firstName}%20${boy.lastName}/match`}>
         <button>Make match</button>
       </Link>
     </div>

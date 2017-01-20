@@ -19,7 +19,9 @@ const SingleGirl = ({ selectedPerson }) => {
       <div>
         <h5>{ girl.tags }</h5>
       </div>
-      <button>Make match</button>
+      <Link to={`/${girl.firstName}%20${girl.lastName}/match`}>
+        <button>Make match</button>
+      </Link>
     </div>
   );
 };

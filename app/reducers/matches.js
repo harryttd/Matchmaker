@@ -4,7 +4,7 @@ import axios from 'axios';
 const GET_MATCHES = "GET_MATCHES";
 
 // ACTION CREATORS
-const matches = selectedPerson => ({ type: GET_MATCHES, selectedPerson });
+const match = matches => ({ type: GET_MATCHES, matches });
 
 // REDUCER
 export default (person = {}, action) => {
@@ -19,7 +19,8 @@ export default (person = {}, action) => {
 };
 
 // DISPATCHERS
-export const getMatches = person => dispatch =>
-  axios.get(`/api/match/${person.indexId}`)
-  .then(res => dispatch(matches(res.data)))
+export const getMatches = person => dispatch => {
+  axios.get(`/api/${person.gender}/match/${person.indexId}`)
+  .then(res => dispatch(match(res.data)))
   .catch(err => console.error(`Fetching matches for ${person.firstName} ${person.lastName} unsuccessful`, err));
+};

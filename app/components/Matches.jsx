@@ -6,11 +6,16 @@ import { connect } from 'react-redux';
 const Matches = ({ selectedPerson, matches }) => {
 
 
-  console.log(selectedPerson, matches);
+  console.log("MATCHES COMPONENT", selectedPerson, "MATCHES", matches);
   return (
     <div>
       {
-        selectedPerson && Object.keys(selectedPerson).map(k => <h1>{k}</h1>)
+        matches.length && matches.map(match =>
+          <div key={match.id}>
+            <img src={ match.image } />
+            <h3>{ `${match.firstName} ${match.lastName}` }</h3>
+          </div>
+        )
       }
     </div>
   );
