@@ -18,9 +18,10 @@ const AllSingles = ({ boys, girls }) => {
     <div>
       {
         people && people.map((single) =>
-        <Link to={`/${single.gender}s/${single.indexId}`} key={single.id}>
-          <h2>{`${single.firstName} ${single.lastName}`}</h2>
-        </Link>
+          <Link to={`/${single.gender}s/${single.indexId}`} key={single.id} className="col col-md-4">
+            <img src={ single.image } />
+            <h2>{`${single.firstName} ${single.lastName}`}</h2>
+          </Link>
         )
       }
     </div>
