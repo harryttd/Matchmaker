@@ -6,6 +6,7 @@ const getTags = (tags) => tags.match(/\w+(?:\s\w+)?/g).map(tag => tag.toLowerCas
 
 const createMatches = (gender, personId) => {
   const personLookingFor = db[gender][personId];
+  if (personLookingFor.matches) return personLookingFor.matches;
   const oppositeGender = gender === 'boys' ? 'girls' : 'boys';
   const tags = getTags(personLookingFor.tags);
   console.log("TAGS:", tags, "OPPOSITE GENDER", oppositeGender);

@@ -5,13 +5,12 @@ import { connect } from 'react-redux';
 
 const Matches = ({ selectedPerson, matches }) => {
 
-
   console.log("MATCHES COMPONENT", selectedPerson, "MATCHES", matches);
   return (
     <div>
       {
         matches.length && matches.map(match =>
-          <div key={match.id}>
+          <div className="col col-md-4" key={match.id}>
             <img src={ match.image } />
             <h3>{ `${match.firstName} ${match.lastName}` }</h3>
           </div>
