@@ -17,6 +17,7 @@ import { getSelectedBoy, getSelectedGirl } from './reducers/selectedPerson';
 const Routes = ({ onAppEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSingleGirlEnter }) => (
   <Router history={browserHistory}>
     <Route path="/" component={Root} onEnter={onAppEnter}>
+      <IndexRoute component={AllSingles} onEnter={onAppEnter} />
       <Route path="/all" component={AllSingles} />
       <Route path="/boys" component={Boys} onEnter={onBoysEnter} />
       <Route path="/boys/:id" component={SingleBoy} onEnter={onSingleBoyEnter} />
