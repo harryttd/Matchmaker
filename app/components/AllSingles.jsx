@@ -12,7 +12,12 @@ const AllSingles = ({ boys, girls }) => {
     girl.indexId = index;
     return girl;
   });
-  const people = boys && girls ? [...allBoys, ...allGirls] : null;
+  let people = allBoys && allGirls ? [...allBoys, ...allGirls] : null;
+  people = people ? people.sort((personA, personB) => {
+    if (personA.lastName < personB.lastName) return -1;
+    if (personA.lastName > personB.lastName) return 1;
+    return 0;
+  }) : null;
 
   return (
     <div>
