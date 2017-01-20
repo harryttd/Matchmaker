@@ -19,7 +19,9 @@ const SingleBoy = ({ selectedPerson }) => {
       <div>
         <h5>{ boy.tags }</h5>
       </div>
-      <button>Make match</button>
+      <Link to={`/match`}>
+        <button>Make match</button>
+      </Link>
     </div>
   );
 };

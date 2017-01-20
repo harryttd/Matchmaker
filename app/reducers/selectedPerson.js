@@ -23,6 +23,7 @@ export default (person = {}, action) => {
   }
 };
 
+// DISPATCHERS
 export const getSelectedBoy = id => dispatch =>
   axios.get(`/api/boys/${id}`)
   .then(res => dispatch(selectBoy(res.data)))

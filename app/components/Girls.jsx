@@ -8,7 +8,7 @@ const Girls = ({ girls }) => {
     <div>
       {
         girls && girls.map((girl, index) =>
-          <Link to={`/girls/${index}`} key={girl.id}>
+          <Link to={`/girls/${girl.indexId}`} key={girl.id}>
             <h2>{`${girl.firstName} ${girl.lastName}`}</h2>
           </Link>
         )

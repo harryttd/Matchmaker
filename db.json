@@ -2,6 +2,7 @@
   "boys": [
     {
       "id": 1,
+      "indexId": 0,
       "image": "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png",
       "gender": "boy",
       "firstName": "Aryeh Moshe",
@@ -31,6 +32,7 @@
 
     {
       "id": 2,
+      "indexId": 1,
       "image": "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/40.png",
       "gender": "boy",
       "firstName": "Yaakov",
@@ -60,6 +62,7 @@
 
     {
       "id": 3,
+      "indexId": 2,
       "image": "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/39.png",
       "gender": "boy",
       "firstName": "Yechiel",
@@ -90,6 +93,7 @@
   "girls": [
     {
       "id": 4,
+      "indexId": 0,
       "image": "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/female/68.png",
       "gender": "girl",
       "firstName": "Kayla",
@@ -118,6 +122,7 @@
 
     {
       "id": 5,
+      "indexId": 1,
       "image": "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/female/63.png",
       "gender": "girl",
       "firstName": "Tehilla Bracha",
@@ -146,6 +151,7 @@
 
     {
       "id": 6,
+      "indexId": 2,
       "image": "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/female/70.png",
       "gender": "girl",
       "firstName": "Ahuva",
