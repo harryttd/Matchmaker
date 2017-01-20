@@ -11,6 +11,7 @@ const SingleBoy = ({ selectedPerson }) => {
           <h2 key={key}>{key + ' ' + selectedPerson[key]}</h2>
         )
       }
+      <button>Make match</button>
     </div>
   );
 };
