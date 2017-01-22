@@ -5,16 +5,24 @@ import { connect } from 'react-redux';
 
 const Girls = ({ girls }) => {
   return (
-    <div>
-      {
-        girls.length && girls.map((girl, index) =>
-          <Link to={`/girls/${girl.indexId}`} key={girl.id} className="col col-md-4">
-            <img src={ girl.image } />
-            <h2>{`${girl.firstName} ${girl.lastName}`}</h2>
-          </Link>
-        )
-      }
-    </div>
+    <section className="product-grid container">
+      <div className="row">
+        {
+          girls.length && girls.map((girl, index) =>
+            <div key={girl.id} className="col col-md-4 demo-card-square mdl-shadow--2dp">
+              <Link to={`/girls/${girl.indexId}`} key={girl.id}>
+                <div className="mdl-card__title mdl-card--expand">
+                  <img src={ girl.image } />
+                </div>
+                <div className="mdl-card__title-text">
+                  {`${girl.firstName} ${girl.lastName}`}
+                </div>
+              </Link>
+            </div>
+          )
+        }
+      </div>
+    </section>
   );
 };
 

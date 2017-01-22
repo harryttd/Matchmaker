@@ -20,16 +20,24 @@ const AllSingles = ({ boys, girls }) => {
   }) : null;
 
   return (
-    <div>
+    <section className="product-grid container">
+      <div className="row">
       {
         people && people.map((single) =>
-          <Link to={`/${single.gender}s/${single.indexId}`} key={single.id} className="col col-md-4">
-            <img src={ single.image } />
-            <h2>{`${single.firstName} ${single.lastName}`}</h2>
-          </Link>
+          <div key={single.id} className="col col-md-4 demo-card-square mdl-shadow--2dp">
+            <Link to={`/boys/${single.indexId}`}>
+              <div className="mdl-card__title mdl-card--expand">
+                <img src={ single.image } />
+              </div>
+              <div className="mdl-card__title-text">
+                {`${single.firstName} ${single.lastName}`}
+              </div>
+            </Link>
+          </div>
         )
       }
     </div>
+  </section>
   );
 };
 

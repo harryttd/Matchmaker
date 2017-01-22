@@ -11,7 +11,7 @@ export default class AppBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // auth: {}
+      auth: {}
     };
     // this.onClickLogout = this.onClickLogout.bind(this);
   }
@@ -23,7 +23,7 @@ export default class AppBar extends React.Component {
   //   this.props.logout();
   //   browserHistory.push('/');
   // }
-  render(){
+  render() {
     // const { auth } = this.props;
     return (
       <Navbar collapseOnSelect>
@@ -41,17 +41,13 @@ export default class AppBar extends React.Component {
                 <MenuItem eventKey={3.3} onClick={() => browserHistory.push("/girls")}>Girls</MenuItem>
             </NavDropdown>
             <NavItem eventKey={2} onClick={() => browserHistory.push("/about")}>ABOUT</NavItem>
-            <NavItem eventKey={3} onClick={() => browserHistory.push("/press")}>PRESS</NavItem>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={4} href="#">
-              <i className="fa fa-search" aria-hidden="true"></i>
-            </NavItem>
-            <NavItem eventKey={5} onClick={ (e) => browserHistory.push('/cart') }>
-              <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            <NavItem eventKey={3} href="#">
+              <i className="glyphicon glyphicon-search" ></i>
             </NavItem>
             {/* auth && auth.email && auth.password_digest ?
-              ( <NavDropdown eventKey={6} title="USER" id="users">
+              ( <NavDropdown eventKey={5} title="USER" id="users">
                   <MenuItem href="/profile"></MenuItem>
                   <MenuItem href="/address">Address Book</MenuItem>
                   <MenuItem role="separator" className="divider"></MenuItem>
