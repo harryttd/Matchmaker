@@ -6,7 +6,7 @@ const getTags = (tags) => tags.match(/\w+(?:\s\w+)?/g).map(tag => tag.toLowerCas
 
 const createMatches = (gender, personId) => {
   const personLookingFor = db[gender][personId];
-  if (personLookingFor.matches) return personLookingFor.matches;
+  if (personLookingFor.matches && personLookingFor.matches.length) return personLookingFor.matches;
   const oppositeGender = gender === 'boys' ? 'girls' : 'boys';
   const tags = getTags(personLookingFor.tags);
   console.log("TAGS:", tags, "OPPOSITE GENDER", oppositeGender);
@@ -16,8 +16,8 @@ const createMatches = (gender, personId) => {
     const matchedTags = _intersection(tags, potentialMatchTags);
     person.numberOfMatchedTags = matchedTags.length;
     if (person.numberOfMatchedTags > 0) return person;
-  });
-  return findMatches.sort((a, b) => b.numberOfMatchedTags - a.numberOfMatchedTags);
+  }).sort((matchA, matchB) => matchB.numberOfMatchedTags - matchA.numberOfMatchedTags);
+  return findMatches;
 };
 
 module.exports = router

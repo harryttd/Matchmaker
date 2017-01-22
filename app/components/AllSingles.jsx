@@ -2,16 +2,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { PageHeader } from 'react-bootstrap';
 
 const AllSingles = ({ boys, girls }) => {
-  // const allBoys = boys && boys.map((boy, index) => {
-  //   boy.indexId = index;
-  //   return boy;
-  // });
-  // const allGirls = girls && girls.map((girl, index) => {
-  //   girl.indexId = index;
-  //   return girl;
-  // });
   let people = boys && girls ? [...boys, ...girls] : null;
   people = people ? people.sort((personA, personB) => {
     if (personA.lastName < personB.lastName) return -1;
@@ -20,27 +13,30 @@ const AllSingles = ({ boys, girls }) => {
   }) : null;
 
   return (
-    <section className="product-grid container">
-      <div className="row">
-      {
-        people && people.map((single) =>
-          <div key={single.id} className="col col-md-4 demo-card-square mdl-shadow--2dp">
-            <Link to={`/${single.gender}s/${single.indexId}`}>
-              <div className="mdl-card__title mdl-card--expand">
-                <img src={ single.image } />
+    <div>
+      <PageHeader className="header">All Singles</PageHeader>
+        <section className="product-grid container">
+          <div className="row">
+          {
+            people && people.map((single) =>
+              <div key={single.id} className="col col-md-4 demo-card-square mdl-shadow--2dp">
+                <Link to={`/${single.gender}s/${single.indexId}`}>
+                  <div className="mdl-card__title mdl-card--expand">
+                    <img src={ single.image } />
+                  </div>
+                  <div className="mdl-card__title-text">
+                    {`${single.firstName} ${single.lastName}`}
+                  </div>
+                  <div className="mdl-card__supporting-text">
+                    Age: { new Date().getFullYear() - single.birthday.match(/\d{4}/)[0] }
+                  </div>
+                </Link>
               </div>
-              <div className="mdl-card__title-text">
-                {`${single.firstName} ${single.lastName}`}
-              </div>
-              <div className="mdl-card__supporting-text">
-                Age: { new Date().getFullYear() - single.birthday.match(/\d{4}/)[0] }
-            </div>
-            </Link>
-          </div>
-        )
-      }
+            )
+          }
+        </div>
+      </section>
     </div>
-  </section>
   );
 };
 
