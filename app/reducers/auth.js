@@ -2,8 +2,8 @@ import axios from 'axios';
 
 /* -----------------    ACTIONS     ------------------ */
 
-const SET    = 'SET_CURRENT_USER'
-const REMOVE = 'REMOVE_CURRENT_USER'
+const SET = 'SET_CURRENT_USER';
+const REMOVE = 'REMOVE_CURRENT_USER';
 
 /* ------------   ACTION CREATORS     ------------------ */
 

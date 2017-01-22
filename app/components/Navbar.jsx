@@ -36,26 +36,27 @@ const AppBar = class AppBar extends React.Component {
         <Navbar.Collapse>
           <Nav>
             <NavDropdown eventKey={3} title="Singles" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1} onClick={() => browserHistory.push("/all")}>All</MenuItem>
-                <MenuItem eventKey={3.2} onClick={() => browserHistory.push("/boys")}>Boys</MenuItem>
-                <MenuItem eventKey={3.3} onClick={() => browserHistory.push("/girls")}>Girls</MenuItem>
+              <MenuItem eventKey={3.1} onClick={() => browserHistory.push("/all")}>All</MenuItem>
+              <MenuItem eventKey={3.2} onClick={() => browserHistory.push("/boys")}>Boys</MenuItem>
+              <MenuItem eventKey={3.3} onClick={() => browserHistory.push("/girls")}>Girls</MenuItem>
             </NavDropdown>
             <NavItem eventKey={2} onClick={() => browserHistory.push("/about")}>ABOUT</NavItem>
           </Nav>
           <Nav pullRight>
             <NavItem eventKey={3} href="#">
-              <i className="glyphicon glyphicon-search" ></i>
+              <i className="glyphicon glyphicon-search" />
             </NavItem>
             { auth && auth.email ?
-              ( <NavDropdown eventKey={5} title="USER" id="users">
+                <NavDropdown eventKey={5} title="USER" id="users">
                   <MenuItem href="/profile">Profile</MenuItem>
-                  <MenuItem role="separator" className="divider"></MenuItem>
+                  <MenuItem role="separator" className="divider" />
                   <MenuItem onClick={this.onClickLogout}>Logout</MenuItem>
-                </NavDropdown> ) :
-              ( <NavDropdown eventKey={6} title="USER" id="users">
+                </NavDropdown>
+              :
+                <NavDropdown eventKey={6} title="USER" id="users">
                   <MenuItem href="/signup">Signup</MenuItem>
                   <MenuItem href="/login">Login</MenuItem>
-                </NavDropdown> )
+                </NavDropdown>
             }
           </Nav>
         </Navbar.Collapse>
@@ -67,13 +68,10 @@ const AppBar = class AppBar extends React.Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const mapProps = ({ auth }) => ({ auth });
-//
-//
 const mapDispatch = dispatch => ({
   logout: () => {
     dispatch(logout());
     browserHistory.push('/');
   }
 });
-//
 export default connect(mapProps, mapDispatch)(AppBar);
