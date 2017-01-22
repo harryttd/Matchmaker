@@ -7,8 +7,9 @@ const Boys = ({ boys }) => {
   return (
     <div>
       {
-        boys && boys.map((boy, index) =>
-          <Link to={`/boys/${boy.indexId}`} key={boy.id}>
+        boys.length && boys.map((boy, index) =>
+          <Link to={`/boys/${boy.indexId}`} key={boy.id} className="col  col-md-4">
+            <img src={ boy.image } />
             <h2>{`${boy.firstName} ${boy.lastName}`}</h2>
           </Link>
         )
@@ -17,5 +18,5 @@ const Boys = ({ boys }) => {
   );
 };
 
-const mapState = ({ singles }) => ({ boys: singles });
+const mapState = ({ singles }) => ({ boys: singles.boys });
 export default connect(mapState)(Boys);

@@ -10,27 +10,43 @@ const allSingles = singles => ({ type: ALL_SINGLES, singles });
 const getBoys = boys => ({ type: GET_BOYS, boys });
 const getGirls = girls => ({ type: GET_GIRLS, girls });
 
-// REDUCER
-export default (singles = [], action) => {
-  switch (action.type) {
+const initialState = {
+  list: {},
+  boys: [],
+  girls: []
+};
 
+// REDUCER
+export default (state = initialState, action) => {
+
+  const newState = Object.assign({}, state);
+
+  switch (action.type) {
     case ALL_SINGLES:
       // return [...action.singles.boys, ...action.singles.girls];
-      return {
+      // return {
+      //   boys: action.singles.boys,
+      //   girls: action.singles.girls
+      // };
+      newState.list = {
         boys: action.singles.boys,
         girls: action.singles.girls
       };
-
+      break;
 
     case GET_BOYS:
-      return action.boys;
+      newState.boys = action.boys;
+      break;
 
     case GET_GIRLS:
-      return action.girls;
+      newState.girls = action.girls;
+      break;
 
     default:
-      return singles;
+      return state;
   }
+
+  return newState;
 };
 
 // DISPATCHERS

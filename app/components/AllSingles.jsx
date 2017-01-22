@@ -34,7 +34,7 @@ const AllSingles = ({ boys, girls }) => {
 };
 
 const mapState = ({ singles }) => ({
-  boys: singles.boys,
-  girls: singles.girls
+  boys: singles.list.boys,
+  girls: singles.list.girls
 });
 export default connect(mapState)(AllSingles);
