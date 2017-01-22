@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const db = require('./db.json');
+const userdb = require('./userdb.json');
 const _intersection = require('lodash').intersection;
 
 const getTags = (tags) => tags.match(/\w+(?:\s\w+)?/g).map(tag => tag.toLowerCase());
@@ -21,6 +22,19 @@ const createMatches = (gender, personId) => {
 };
 
 module.exports = router
+  .post('/login', (req, res, next) => {
+    console.log("HEREHEHERHERHEHR");
+    const user = userdb.users.find(person => {
+      return person.email === req.body.email && person.password === req.body.password;
+    });
+    if (user) {
+      console.log("USER", user);
+      req.session.userId = user.id;
+      res.json(user);
+    } else {
+      res.sendStatus(401);
+    }
+  })
   .get('/all', (req, res, next) => res.json(db))
   .get('/boys', (req, res, next) => res.json(db.boys))
   .get('/boys/:id', (req, res, next) => res.json(db.boys[req.params.id]))

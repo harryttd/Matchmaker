@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import store from './store';
 
 import Root from './components/Root';
+import Login from './components/Login';
 import AllSingles from './components/AllSingles';
 import Boys from './components/Boys';
 import SingleBoy from '././components/SingleBoy';
@@ -20,6 +21,7 @@ const Routes = ({ onAppEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSin
   <Router history={browserHistory}>
     <Route path="/" component={Root} onEnter={onAppEnter}>
       <IndexRoute component={AllSingles} onEnter={onAppEnter} />
+      <Route path="/login" component={Login} />
       <Route path="/all" component={AllSingles} />
       <Route path="/boys" component={Boys} onEnter={onBoysEnter} />
       <Route path="/boys/:id" component={SingleBoy} onEnter={onSingleBoyEnter} />
