@@ -19,39 +19,33 @@ import { getAllSingles, getAllBoys, getAllGirls } from './reducers/singles';
 import { getSelectedBoy, getSelectedGirl } from './reducers/selectedPerson';
 import { getMatches } from './reducers/matches';
 
-const Routes = ({ onAppEnter, onLoginEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSingleGirlEnter, onMatchEnter }) => (
+const Routes = ({ onAppEnter, onLoginEnter, onAllSinglesEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSingleGirlEnter, onMatchEnter }) => (
   <Router history={browserHistory}>
     <Route path="/" component={Root} onEnter={onAppEnter}>
       <IndexRoute component={Home} onEnter={onAppEnter} />
       <Route path="/login" component={Login} onEnter={onLoginEnter} />
-      <Route path="/all" component={AllSingles} />
+      <Route path="/all" component={AllSingles} onEnter={onAllSinglesEnter} />
       <Route path="/boys" component={Boys} onEnter={onBoysEnter} />
       <Route path="/boys/:id" component={SingleBoy} onEnter={onSingleBoyEnter} />
       <Route path="/girls" component={Girls} onEnter={onGirlsEnter} />
       <Route path="/girls/:id" component={SingleGirl} onEnter={onSingleGirlEnter} />
       <Route path="/:personName/match" component={Matches} onEnter={onMatchEnter} />
+      <Route path="/*" component={Home} />
     </Route>
   </Router>
 );
 
 const mapState = null;
 const mapDispatch = dispatch => ({
-  onAppEnter: () => {
-    dispatch(getLoggedInUser());
-  },
+  onAppEnter: () => dispatch(getLoggedInUser()),
   onLoginEnter: () => dispatch(getAllSingles()),
-  onBoysEnter: () => {
-    if (store.getState().auth) dispatch(getAllBoys());
-  },
-  onGirlsEnter: () => {
-    if (store.getState().auth) dispatch(getAllGirls());
-  },
-  onSingleGirlEnter: (nextRouterState) => {
-    if (store.getState().auth) dispatch(getSelectedGirl(nextRouterState.params.id));
-  },
-  onSingleBoyEnter: (nextRouterState) => {
-    if (store.getState().auth) dispatch(getSelectedBoy(nextRouterState.params.id));
-  },
+  onAllSinglesEnter: () => dispatch(getAllSingles()),
+  onBoysEnter: () => dispatch(getAllBoys()),
+  onGirlsEnter: () => dispatch(getAllGirls()),
+  onSingleGirlEnter: (nextRouterState) =>
+  dispatch(getSelectedGirl(nextRouterState.params.id)),
+  onSingleBoyEnter: (nextRouterState) =>
+  dispatch(getSelectedBoy(nextRouterState.params.id)),
   onMatchEnter: (nextRouterState) => {
     dispatch(getMatches(store.getState().selectedPerson));
   }

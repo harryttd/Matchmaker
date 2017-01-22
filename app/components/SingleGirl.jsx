@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-const SingleGirl = ({ selectedPerson }) => {
+const SingleGirl = ({ auth, selectedPerson }) => {
   const girl = selectedPerson;
-  return (
-    <div>
+  return auth ?
+    (<div>
       <div>
         <img src={ girl.image } />
         <h2>{`${girl.firstName} ${girl.lastName}`}</h2>
@@ -23,8 +23,8 @@ const SingleGirl = ({ selectedPerson }) => {
         <button>Make match</button>
       </Link>
     </div>
-  );
+  ) : <h1>You are not signed in</h1>;
 };
 
-const mapState = ({ selectedPerson }) => ({ selectedPerson });
+const mapState = ({ auth, selectedPerson }) => ({ auth, selectedPerson });
 export default connect(mapState)(SingleGirl);

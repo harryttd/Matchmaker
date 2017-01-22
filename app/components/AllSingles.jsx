@@ -1,21 +1,19 @@
 'use strict';
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
-const AllSingles = ({ boys, girls }) => {
+const AllSingles = ({ auth, boys, girls }) => {
   let people = boys && girls ? [...boys, ...girls] : null;
   people = people ? people.sort((personA, personB) => {
-    if (personA.lastName < personB.lastName) return -1;
-    if (personA.lastName > personB.lastName) return 1;
-    return 0;
+    return personA.lastName < personB.lastName ? -1 : personA.lastName > personB.lastName ? 1 : 0;
   }) : null;
 
-  return (
-    <div>
+  return auth ?
+    (<div>
       <PageHeader className="header">All Singles</PageHeader>
-        <section className="product-grid container">
+        <section className="container">
           <div className="row">
           {
             people && people.map((single) =>
@@ -36,11 +34,11 @@ const AllSingles = ({ boys, girls }) => {
           }
         </div>
       </section>
-    </div>
-  );
+    </div>) : <h1>You are not signed in</h1>;
 };
 
-const mapState = ({ singles }) => ({
+const mapState = ({ auth, singles }) => ({
+  auth,
   boys: singles.list.boys,
   girls: singles.list.girls
 });

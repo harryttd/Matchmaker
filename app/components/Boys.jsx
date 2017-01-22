@@ -4,9 +4,9 @@ import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
-const Boys = ({ boys }) => {
-  return (
-    <div>
+const Boys = ({ auth, boys }) => {
+  return auth ?
+    (<div>
       <PageHeader className="header">Boys</PageHeader>
       <section className="product-grid container">
         <div className="row">
@@ -30,8 +30,13 @@ const Boys = ({ boys }) => {
         </div>
       </section>
     </div>
-  );
+  ) : <h1>You are not signed in</h1>;
 };
 
-const mapState = ({ singles }) => ({ boys: singles.boys });
+const mapState = ({ auth, singles }) => ({
+  auth,
+  boys: singles.boys.sort((personA, personB) => {
+  return personA.lastName < personB.lastName ? -1 : personA.lastName > personB.lastName ? 1 : 0;
+  })
+});
 export default connect(mapState)(Boys);

@@ -39,12 +39,28 @@ module.exports = router
   })
   .post('/me', function (req, res, next) {
     if (req.session.userId) res.json(userdb.users.find(person => person.id === req.session.userId));
+    else res.sendStatus(401);
   })
-  .get('/all', (req, res, next) => res.json(db))
-  .get('/boys', (req, res, next) => res.json(db.boys))
-  .get('/boys/:id', (req, res, next) => res.json(db.boys[req.params.id]))
-  .get('/girls', (req, res, next) => res.json(db.girls))
-  .get('/girls/:id', (req, res, next) => res.json(db.girls[req.params.id]))
+  .get('/all', (req, res, next) => {
+    if (req.session.userId) res.json(db);
+    else res.sendStatus(401);
+  })
+  .get('/boys', (req, res, next) => {
+    if (req.session.userId) res.json(db.boys);
+    else res.sendStatus(401);
+  })
+  .get('/boys/:id', (req, res, next) => {
+    if (req.session.userId) res.json(db.boys[req.params.id]);
+    else res.sendStatus(401);
+  })
+  .get('/girls', (req, res, next) => {
+    if (req.session.userId) res.json(db.girls);
+    else res.sendStatus(401);
+  })
+  .get('/girls/:id', (req, res, next) => {
+    if (req.session.userId) res.json(db.girls[req.params.id]);
+    else res.sendStatus(401);
+  })
   .get('/:gender/match/:id', (req, res, next) => {
     console.log("REQ>PARAMS", req.params.gender, req.params.id);
     const matches = createMatches(`${req.params.gender}s`, req.params.id);
