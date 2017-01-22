@@ -43,7 +43,7 @@ export const signup = credentials => dispatch => {
        .catch(err => console.error('Signup unsuccesful', err));
 };
 
-export const retrieveLoggedInUser = () => dispatch => {
+export const getLoggedInUser = () => dispatch => {
   axios.get('/api/me')
       .then(res => dispatch(set(res.data)))
       .catch(err => console.error('retrieveLoggedInUser unsuccesful', err));

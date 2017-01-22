@@ -13,6 +13,7 @@ import Girls from './components/Girls';
 import SingleGirl from './components/SingleGirl';
 import Matches from './components/Matches';
 
+import { getLoggedInUser } from './reducers/auth';
 import { getAllSingles, getAllBoys, getAllGirls } from './reducers/singles';
 import { getSelectedBoy, getSelectedGirl } from './reducers/selectedPerson';
 import { getMatches } from './reducers/matches';
@@ -34,7 +35,10 @@ const Routes = ({ onAppEnter, onBoysEnter, onGirlsEnter, onSingleBoyEnter, onSin
 
 const mapState = null;
 const mapDispatch = dispatch => ({
-  onAppEnter: () => dispatch(getAllSingles()),
+  onAppEnter: () => {
+    dispatch(getLoggedInUser());
+    dispatch(getAllSingles());
+  },
   onBoysEnter: () => dispatch(getAllBoys()),
   onGirlsEnter: () => dispatch(getAllGirls()),
   onSingleGirlEnter: (nextRouterState) => dispatch(getSelectedGirl(nextRouterState.params.id)),

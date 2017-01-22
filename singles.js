@@ -35,7 +35,11 @@ module.exports = router
   })
   .get('/logout', (req, res, next) => {
     req.session.destroy();
-    res.sendStatus(204);
+    res.status(204).redirect('/');
+  })
+  .get('/me', function (req, res, next) {
+    if (req.session.userId) res.json(userdb.users.find(person => person.id === req.session.userId));
+    else res.sendStatus(401);
   })
   .get('/all', (req, res, next) => res.json(db))
   .get('/boys', (req, res, next) => res.json(db.boys))

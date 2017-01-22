@@ -23,6 +23,7 @@
     "express-session": "^1.14.2",
     "lodash": "^4.17.4",
     "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.3.2",
