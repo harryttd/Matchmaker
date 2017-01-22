@@ -18,6 +18,9 @@ const Girls = ({ girls }) => {
                   {`${girl.firstName} ${girl.lastName}`}
                 </div>
               </Link>
+              <div className="mdl-card__supporting-text">
+                Age: { new Date().getFullYear() - girl.birthday.match(/\d{4}/)[0] }
+            </div>
             </div>
           )
         }

@@ -25,13 +25,16 @@ const AllSingles = ({ boys, girls }) => {
       {
         people && people.map((single) =>
           <div key={single.id} className="col col-md-4 demo-card-square mdl-shadow--2dp">
-            <Link to={`/boys/${single.indexId}`}>
+            <Link to={`/${single.gender}s/${single.indexId}`}>
               <div className="mdl-card__title mdl-card--expand">
                 <img src={ single.image } />
               </div>
               <div className="mdl-card__title-text">
                 {`${single.firstName} ${single.lastName}`}
               </div>
+              <div className="mdl-card__supporting-text">
+                Age: { new Date().getFullYear() - single.birthday.match(/\d{4}/)[0] }
+            </div>
             </Link>
           </div>
         )
