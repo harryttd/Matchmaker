@@ -18,7 +18,6 @@ const Login = class Login extends React.Component {
     };
     console.log('credentials', credentials);
     this.props.login(credentials);
-    browserHistory.push('/');
   }
 
   render() {

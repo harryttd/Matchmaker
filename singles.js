@@ -37,9 +37,8 @@ module.exports = router
     req.session.destroy();
     res.status(204).redirect('/');
   })
-  .get('/me', function (req, res, next) {
+  .post('/me', function (req, res, next) {
     if (req.session.userId) res.json(userdb.users.find(person => person.id === req.session.userId));
-    else res.sendStatus(401);
   })
   .get('/all', (req, res, next) => res.json(db))
   .get('/boys', (req, res, next) => res.json(db.boys))
