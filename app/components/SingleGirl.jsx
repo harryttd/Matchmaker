@@ -13,8 +13,10 @@ const SingleGirl = ({ auth, selectedPerson }) => {
         <li className="active">{`${girl.firstName}`}</li>
       </ol>
       <div>
-        <img src={ girl.image } />
+        <img src={ girl.image } className="col col-md-6" />
         <h2>{`${girl.firstName} ${girl.lastName}`}</h2>
+      </div>
+      <div>
         <h3>Address: { girl.address }</h3>
         <h3>Birthday: { girl.birthday }</h3>
         <h3>Height: { girl.height }</h3>
@@ -22,7 +24,7 @@ const SingleGirl = ({ auth, selectedPerson }) => {
         <h3>Willing to relocate: { girl.relocate }</h3>
       </div>
       <div>
-        <h5>{ girl.tags }</h5>
+        <h5>Tags: { girl.tags }</h5>
       </div>
       <Link to={`/${girl.firstName}%20${girl.lastName}/match`}>
         <button>Make match</button>
