@@ -1,7 +1,9 @@
 const router = require('express').Router();
+const jsonfile = require('jsonfile');
 const db = require('./db.json');
 const userdb = require('./userdb.json');
 const _intersection = require('lodash').intersection;
+const file = './db.json';
 
 const getTags = (tags) => tags.match(/\w+(?:\s\w+)?/g).map(tag => tag.toLowerCase());
 
@@ -13,11 +15,22 @@ const createMatches = (gender, personId) => {
   console.log("TAGS:", tags, "OPPOSITE GENDER", oppositeGender);
   const findMatches = db[oppositeGender].filter((person) => {
     const potentialMatchTags = getTags(person.tags);
-    console.log("POTENTIAL MATCH TAGS", potentialMatchTags);
+    // console.log("POTENTIAL MATCH TAGS", potentialMatchTags);
     const matchedTags = _intersection(tags, potentialMatchTags);
     person.numberOfMatchedTags = matchedTags.length;
     if (person.numberOfMatchedTags > 0) return person;
   }).sort((matchA, matchB) => matchB.numberOfMatchedTags - matchA.numberOfMatchedTags);
+
+  if (findMatches.length) {
+    jsonfile.readFile(file, (err, db) => {
+      if (err) console.error(err);
+      // console.log(db);
+      db[gender][personId].matches = findMatches;
+      jsonfile.writeFile(file, db, {spaces: 2}, (e) => {
+        console.error(e);
+      });
+    });
+  }
   return findMatches;
 };
 
@@ -29,9 +42,8 @@ module.exports = router
     if (user) {
       req.session.userId = user.id;
       res.json(user);
-    } else {
-      res.sendStatus(401);
     }
+    else res.sendStatus(401);
   })
   .get('/logout', (req, res, next) => {
     req.session.destroy();
@@ -64,6 +76,6 @@ module.exports = router
   .get('/:gender/match/:id', (req, res, next) => {
     console.log("REQ>PARAMS", req.params.gender, req.params.id);
     const matches = createMatches(`${req.params.gender}s`, req.params.id);
-    console.log("MATCHES:", matches);
     res.json(matches);
+    // console.log("MATCHES:", matches);
   });

@@ -4,8 +4,6 @@ import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 const Matches = ({ selectedPerson, matches }) => {
-
-  console.log("MATCHES COMPONENT", selectedPerson, "MATCHES", matches);
   return (
     <div>
       <ol className="breadcrumb">
