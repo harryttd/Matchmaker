@@ -8,6 +8,12 @@ const Matches = ({ selectedPerson, matches }) => {
   console.log("MATCHES COMPONENT", selectedPerson, "MATCHES", matches);
   return (
     <div>
+      <ol className="breadcrumb">
+        <li><Link to="/all">All Singles</Link></li>
+        <li><Link to={`/${selectedPerson.gender}s`}>{`${selectedPerson.gender}s`}</Link></li>
+        <li><Link to={`/${selectedPerson.gender}s/${selectedPerson.indexId}`}>{`${selectedPerson.firstName}`}</Link></li>
+        <li className="active">Matches</li>
+      </ol>
       <PageHeader className="header">
         {matches.length} matches found for {selectedPerson.firstName}
       </PageHeader>

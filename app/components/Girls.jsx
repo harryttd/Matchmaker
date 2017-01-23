@@ -7,7 +7,10 @@ import { PageHeader } from 'react-bootstrap';
 const Girls = ({ auth, girls }) => {
   return auth ?
     (<div>
-      <PageHeader className="header">Girls</PageHeader>
+      <ol className="breadcrumb">
+        <li><Link to="/all">All Singles</Link></li>
+        <li className="active">Girls</li>
+      </ol>
       <section className="product-grid container">
         <div className="row">
           {

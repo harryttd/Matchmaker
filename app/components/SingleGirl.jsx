@@ -7,6 +7,11 @@ const SingleGirl = ({ auth, selectedPerson }) => {
   const girl = selectedPerson;
   return auth ?
     (<div>
+      <ol className="breadcrumb">
+        <li><Link to="/all">All Singles</Link></li>
+        <li><Link to="/girls">Girls</Link></li>
+        <li className="active">{`${girl.firstName}`}</li>
+      </ol>
       <div>
         <img src={ girl.image } />
         <h2>{`${girl.firstName} ${girl.lastName}`}</h2>
