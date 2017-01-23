@@ -26,7 +26,8 @@
       "familyRav": "Rabbi Sruly Friedman",
       "ravPhone": "1234567890",
       "learning": true,
-      "tags": "Type A, Leader, Tall, Skinny, Blonde Hair, Science, Computers, Basketball",
+      "tags": "Tall, Science, Computer Programming, Basketball, Snowboarding",
+      "personality": "ESTJ",
       "lookingFor": "Down to Earth, Spiritual, Laid Back"
     },
 
@@ -56,7 +57,8 @@
       "familyRav": "Rabbi Meir Rubin",
       "ravPhone": "1234567890",
       "learning": false,
-      "tags": "Type B, Short, Brown Hair, Jogging, Cooking",
+      "tags": "Jogging, Cooking, Skiing",
+      "personality": "ESTJ",
       "lookingFor": "Smart, Intellectual"
     },
 
@@ -86,7 +88,8 @@
       "familyRav": "Rabbi Shmuel Meir Katz",
       "ravPhone": "1234567890",
       "learning": true,
-      "tags": "Type A, High Energy, Brown Hair, Working Out, Video Games",
+      "tags": "High Energy, Working Out, Video Games, Snowboarding",
+      "personality": "ESTJ",
       "lookingFor": "Smart, Intellectual"
     }
   ],
@@ -116,7 +119,8 @@
       "shul": "some random shul",
       "familyRav": "Rabbi Random Rabbi",
       "ravPhone": "1234567890",
-      "tags": "Type A, Black Hair, Working Out, Learning Torah",
+      "tags": "Working Out, Learning Torah, Cooking, Piano",
+      "personality": "ESTJ",
       "lookingFor": "Learner, Tall, Leader"
     },
 
@@ -145,7 +149,8 @@
       "shul": "some random shul",
       "familyRav": "Rabbi Random Rabbi",
       "ravPhone": "1234567890",
-      "tags": "Type B, Dirty Blonde Hair, Cooking, Video Games",
+      "tags": "Cooking, Video Games, Skiing",
+      "personality": "Type A",
       "lookingFor": "Worker, High Energy, Smart"
     },
 
@@ -174,7 +179,8 @@
       "shul": "some random shul",
       "familyRav": "Rabbi Random Rabbi",
       "ravPhone": "1234567890",
-      "tags": "Type A, Brown Hair, Spiritual, Computer Programming",
+      "tags": "Spiritual, Computer Programming",
+      "personality": "ESTJ",
       "lookingFor": "Learner, Smart, Intellectual"
     }
   ]

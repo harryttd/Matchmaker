@@ -17,7 +17,7 @@ const AllSingles = ({ auth, boys, girls }) => {
           <div className="row">
           {
             people && people.map((single) =>
-              <div key={single.id} className="col col-md-4 demo-card-square mdl-shadow--2dp">
+              <div key={single.id} className="nav col col-md-4 demo-card-square mdl-shadow--2dp">
                 <Link to={`/${single.gender}s/${single.indexId}`}>
                   <div className="mdl-card__title mdl-card--expand">
                     <img src={ single.image } />
