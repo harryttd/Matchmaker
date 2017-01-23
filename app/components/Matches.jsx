@@ -15,7 +15,7 @@ const Matches = ({ selectedPerson, matches }) => {
         <li className="active">Matches</li>
       </ol>
       <PageHeader className="header">
-        {matches.length} matches found for {selectedPerson.firstName}
+        {matches.length} match{matches.length > 1 ? 'es' : null} found for {selectedPerson.firstName}
       </PageHeader>
       <section className="container">
         <div className="row">
