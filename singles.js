@@ -24,7 +24,6 @@ const createMatches = (gender, personId) => {
   if (findMatches.length) {
     jsonfile.readFile(file, (err, db) => {
       if (err) console.error(err);
-      // console.log(db);
       db[gender][personId].matches = findMatches;
       jsonfile.writeFile(file, db, {spaces: 2}, (e) => {
         console.error(e);
