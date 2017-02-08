@@ -1,11 +1,12 @@
 {
-  "name": "puppybook",
+  "name": "matchmaker",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack -w & nodemon server.js"
+    "start": "webpack -w & nodemon server.js",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
